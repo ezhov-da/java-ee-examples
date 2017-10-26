@@ -1,4 +1,4 @@
-package ru.ezhov.persistance;
+package ru.ezhov.persistence;
 
 import ru.ezhov.cdi.Book;
 
@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 /**
  * Created by rrnezh on 26.10.2017.
  */
-public class AppPersistance {
+public class AppPersistence {
     public static void main(String[] args) {
         EntityManagerFactory entityManagerFactory =
                 Persistence.createEntityManagerFactory("ru.ezhov");
