@@ -1,4 +1,4 @@
-package ru.ezhov;
+package ru.ezhov.cdi;
 
 /**
  * Created by rrnezh on 26.10.2017.

@@ -1,5 +1,6 @@
-package ru.ezhov;
+package ru.ezhov.cdi;
 
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
 /**
@@ -11,9 +12,12 @@ public class BookService {
     @ThirteenDigits
     private NumberGenerator numberGenerator;
 
+    @Inject
+    private Event<Book> bookEventAdd;
+
     public Book createBook(String title, Float price, String description) {
-        Book book = new Book(title, price, description);
-        book.setNumber(numberGenerator.generateNumber());
+        Book book = new Book(title, price, description, numberGenerator.generateNumber());
+        bookEventAdd.fire(book);
         return book;
     }
 }

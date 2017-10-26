@@ -1,4 +1,4 @@
-package ru.ezhov;
+package ru.ezhov.cdi;
 
 import javax.inject.Inject;
 import java.util.Random;

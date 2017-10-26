@@ -1,4 +1,4 @@
-package ru.ezhov;
+package ru.ezhov.cdi;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.ElementType;
@@ -12,5 +12,5 @@ import java.lang.annotation.Target;
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.FIELD})
-public @interface ThirteenDigits {
+public @interface EightDigits {
 }

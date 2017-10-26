@@ -1,4 +1,4 @@
-package ru.ezhov;
+package ru.ezhov.cdi;
 
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
