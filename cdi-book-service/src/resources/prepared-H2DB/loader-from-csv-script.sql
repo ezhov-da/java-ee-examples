@@ -1,3 +1,4 @@
+--T_E_NOTE==========================================================================
 DROP TABLE IF EXISTS T_E_NOTE ;
 CREATE TABLE T_E_NOTE(
 	 ID INT NOT NULL AUTO_INCREMENT
@@ -15,7 +16,7 @@ from T_E_NOTE;
 
 CREATE PRIMARY KEY ON T_E_NOTE (ID);
 
---==========================================================================
+--T_E_NOTE_DETAIL==========================================================================
 
 DROP TABLE IF EXISTS  T_E_NOTE_DETAIL ;
 CREATE TABLE T_E_NOTE_DETAIL AS SELECT * FROM CSVREAD('C:\Users\rrnezh\programmer\git\java-ee-examples\cdi-book-service\src\resources\prepared-H2DB\T_E_NOTE_DETAIL.csv', null, 'charset=UTF-8');
@@ -33,7 +34,7 @@ CREATE PRIMARY KEY ON T_E_NOTE_DETAIL (ID);
 
 ALTER TABLE T_E_NOTE_DETAIL ADD FOREIGN KEY(ID) REFERENCES T_E_NOTE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
 
---==========================================================================
+--T_E_NOTE_TIMESTAMP==========================================================================
 
 DROP TABLE IF EXISTS  T_E_NOTE_TIMESTAMP ;
 CREATE TABLE T_E_NOTE_TIMESTAMP AS SELECT * FROM CSVREAD('C:\Users\rrnezh\programmer\git\java-ee-examples\cdi-book-service\src\resources\prepared-H2DB\T_E_NOTE_TIMESTAMP.csv', null, 'charset=UTF-8');
@@ -88,3 +89,64 @@ SELECT
 	,DATEADD
 	,DATEEDIT
 FROM T_E_NOTE_TIMESTAMP;
+
+--T_E_USERS==========================================================================
+
+DROP TABLE IF EXISTS T_E_USERS ;
+CREATE TABLE T_E_USERS(
+	 ID INT NOT NULL AUTO_INCREMENT
+	,NAME VARCHAR(256)
+	,PASS VARCHAR(100)
+);
+
+INSERT INTO T_E_USERS(ID,NAME, PASS) SELECT id,name, pass FROM CSVREAD('C:\Users\rrnezh\programmer\git\java-ee-examples\cdi-book-service\src\resources\prepared-H2DB\T_E_USERS.csv', null, 'charset=UTF-8');
+
+select 
+	ID
+	,NAME
+	,PASS
+from T_E_USERS;
+
+CREATE PRIMARY KEY ON T_E_USERS (ID);
+
+--T_E_LINK_USER_NOTE==========================================================================
+
+DROP TABLE IF EXISTS T_E_LINK_USER_NOTE ;
+CREATE TABLE T_E_LINK_USER_NOTE(
+	 ID INT NOT NULL AUTO_INCREMENT
+	,ID_USER INT
+	,ID_NOTE INT
+);
+
+INSERT INTO T_E_LINK_USER_NOTE(ID_USER, ID_NOTE) SELECT iduser, idnote FROM CSVREAD('C:\Users\rrnezh\programmer\git\java-ee-examples\cdi-book-service\src\resources\prepared-H2DB\T_E_LINK_USER_NOTE.csv', null, 'charset=UTF-8');
+
+select 
+	ID
+	,ID_USER
+	,ID_NOTE
+from T_E_LINK_USER_NOTE;
+
+CREATE PRIMARY KEY ON T_E_LINK_USER_NOTE (ID);
+
+ALTER TABLE T_E_LINK_USER_NOTE ADD FOREIGN KEY(ID_USER) REFERENCES T_E_USERS (ID) ON DELETE CASCADE ON UPDATE CASCADE;
+
+DELETE FROM T_E_NOTE WHERE ID IN (
+SELECT ID FROM T_E_NOTE WHERE ID NOT IN (SELECT ID_NOTE FROM T_E_LINK_USER_NOTE));
+
+DELETE FROM T_E_LINK_USER_NOTE WHERE ID_NOTE IN (
+SELECT ID_NOTE FROM T_E_LINK_USER_NOTE WHERE ID_NOTE NOT IN (SELECT ID FROM T_E_LINK_USER_NOTE));
+
+ALTER TABLE T_E_LINK_USER_NOTE ADD FOREIGN KEY(ID_NOTE) REFERENCES T_E_NOTE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--T_E_TAG==========================================================================
+DROP TABLE IF EXISTS T_E_TAG ;
+CREATE TABLE T_E_TAG(
+	 ID INT NOT NULL AUTO_INCREMENT
+	,ID_NOTE INT NOT NULL
+	,TAG VARCHAR(255) NOT NULL
+);
+
+CREATE PRIMARY KEY ON T_E_TAG (ID);
+ALTER TABLE T_E_TAG ADD FOREIGN KEY(ID_NOTE) REFERENCES T_E_NOTE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
+
+SELECT * FROM T_E_TAG;

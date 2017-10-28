@@ -3,7 +3,9 @@ package ru.ezhov.persistence;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by rrnezh on 28.10.2017.
@@ -43,6 +45,12 @@ public class NoteBig {
     @Size(max = 1000)
     @Column(table = "T_E_NOTE_DETAIL")
     private String link;
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "T_E_TAG",
+            joinColumns=@JoinColumn(name = "ID", referencedColumnName = "ID"))
+    @Column(name = "TAG")
+    private List<String> tags = new ArrayList<>();
 
     public NoteBig() {
     }
@@ -118,6 +126,14 @@ public class NoteBig {
         this.link = link;
     }
 
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
     @Override
     public String toString() {
         return "NoteBig{" +
@@ -128,6 +144,7 @@ public class NoteBig {
                 ", dateEdit=" + dateEdit +
                 ", text='" + text + '\'' +
                 ", link='" + link + '\'' +
+                ", tags=" + tags +
                 '}';
     }
 }

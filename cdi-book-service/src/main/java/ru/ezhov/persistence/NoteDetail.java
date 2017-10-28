@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
 @Table(name = "T_E_NOTE_DETAIL")
 public class NoteDetail {
     @Id
+
     private int id;
 
     @NotNull

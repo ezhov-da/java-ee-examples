@@ -1,11 +1,10 @@
 package ru.ezhov.persistence;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by rrnezh on 28.10.2017.
@@ -22,6 +21,18 @@ public class Note {
 
     @Column(name = "ISHIDE")
     private boolean hide;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID", insertable = false, updatable = false)
+    private NoteDetail noteDetail;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID", insertable = false, updatable = false)
+    private NoteDate noteDate;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_NOTE", insertable = false, updatable = false)
+    private List<Tag> tagList = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -53,6 +64,9 @@ public class Note {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", hide=" + hide +
+                ", noteDetail=" + noteDetail +
+                ", noteDate=" + noteDate +
+                ", tagList=" + tagList +
                 '}';
     }
 }

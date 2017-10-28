@@ -34,8 +34,6 @@ public class NoteBigTest {
 
             LOG.info("list: {}", list);
             assertTrue(!list.isEmpty());
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
         } finally {
             entityManager.close();
             entityManagerFactory.close();

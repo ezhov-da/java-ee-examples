@@ -1,5 +1,6 @@
 package ru.ezhov.persistence;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -14,7 +15,10 @@ import java.util.Date;
 public class NoteDate {
     @Id
     private int id;
+
+    @NotNull
     private Date dateAdd;
+
     private Date dateEdit;
 
     public int getId() {
