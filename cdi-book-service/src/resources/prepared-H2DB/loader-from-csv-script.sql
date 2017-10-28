@@ -1,15 +1,17 @@
 DROP TABLE IF EXISTS T_E_NOTE ;
-CREATE TABLE T_E_NOTE AS SELECT * FROM CSVREAD('C:\Users\rrnezh\programmer\git\java-ee-examples\cdi-book-service\src\resources\prepared-H2DB\T_E_NOTE.csv', null, 'charset=UTF-8');
+CREATE TABLE T_E_NOTE(
+	 ID INT NOT NULL AUTO_INCREMENT
+	,NAME VARCHAR(256)
+	,ISHIDE boolean
+);
+
+INSERT INTO T_E_NOTE SELECT * FROM CSVREAD('C:\Users\rrnezh\programmer\git\java-ee-examples\cdi-book-service\src\resources\prepared-H2DB\T_E_NOTE.csv', null, 'charset=UTF-8');
 
 select 
 	ID
 	,NAME
 	,ISHIDE
 from T_E_NOTE;
-
-ALTER TABLE T_E_NOTE ALTER COLUMN ID  SET NOT NULL;
-ALTER TABLE T_E_NOTE ALTER COLUMN ID  INT;
-ALTER TABLE T_E_NOTE ALTER COLUMN ISHIDE  BOOLEAN;
 
 CREATE PRIMARY KEY ON T_E_NOTE (ID);
 

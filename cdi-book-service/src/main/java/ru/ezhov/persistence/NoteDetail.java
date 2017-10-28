@@ -3,6 +3,8 @@ package ru.ezhov.persistence;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by rrnezh on 28.10.2017.
@@ -12,7 +14,11 @@ import javax.persistence.Table;
 public class NoteDetail {
     @Id
     private int id;
+
+    @NotNull
     private String text;
+
+    @Size(max = 1000)
     private String link;
 
     public int getId() {
