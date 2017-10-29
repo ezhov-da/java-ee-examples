@@ -1,9 +1,9 @@
 package ru.ezhov.persistence;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.ezhov.persistence.note.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -27,7 +27,7 @@ public class UserTest {
 
         try {
             List<User> list = entityManager.createQuery(
-                    "select n FROM User n",
+                    "select n FROM UserToManyColumn n",
                     User.class
             ).getResultList();
 

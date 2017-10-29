@@ -6,9 +6,18 @@
     <persistence-unit name="ru.ezhov" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>ru.ezhov.cdi.Book</class>
-        <class>ru.ezhov.persistence.Note</class>
-        <class>ru.ezhov.persistence.NoteDetail</class>
-        <class>ru.ezhov.persistence.NoteDate</class>
+        <class>ru.ezhov.persistence.note.Note</class>
+        <class>ru.ezhov.persistence.note.NoteDetail</class>
+        <class>ru.ezhov.persistence.note.NoteDate</class>
+
+        <class>ru.ezhov.persistence.two.assotioation.Customer</class>
+        <class>ru.ezhov.persistence.two.assotioation.Address</class>
+
+        <class>ru.ezhov.persistence.one.assotiation.one.to.many.UserToMany</class>
+        <class>ru.ezhov.persistence.one.assotiation.one.to.many.Note</class>
+
+        <class>ru.ezhov.persistence.one.assotiation.one.to.many.from.column.key.UserToManyColumn</class>
+        <class>ru.ezhov.persistence.one.assotiation.one.to.many.from.column.key.Note</class>
         <properties>
             <property name="hibernate.dialect"
                       value="org.hibernate.dialect.H2Dialect"/>

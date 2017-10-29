@@ -1,4 +1,4 @@
-package ru.ezhov.persistence;
+package ru.ezhov.persistence.note;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

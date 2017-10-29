@@ -1,10 +1,12 @@
-package ru.ezhov.persistence;
+package ru.ezhov.persistence.one.assotiation.one.to.many;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import ru.ezhov.persistence.note.NoteDate;
+import ru.ezhov.persistence.note.NoteDetail;
+import ru.ezhov.persistence.note.Tag;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,16 +14,17 @@ import java.util.List;
  * Created by rrnezh on 28.10.2017.
  */
 @Entity
-@Table(name = "T_E_USERS")
-public class User {
+@Table(name = "T_E_NOTE")
+public class Note {
     @Id
     private int id;
 
     @NotNull
+    @Size(min = 1, max = 256)
     private String name;
 
-    @NotNull
-    private String pass;
+    @Column(name = "ISHIDE")
+    private boolean hide;
 
     public int getId() {
         return id;
@@ -39,20 +42,20 @@ public class User {
         this.name = name;
     }
 
-    public String getPass() {
-        return pass;
+    public boolean isHide() {
+        return hide;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setHide(boolean hide) {
+        this.hide = hide;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Note{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", pass='" + pass + '\'' +
+                ", hide=" + hide +
                 '}';
     }
 }
