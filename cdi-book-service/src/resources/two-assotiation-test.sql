@@ -18,4 +18,15 @@ select * from T_E_CUSTOMER;
 select * from T_E_ADDRESS;
 
 
+INSERT INTO T_E_CUSTOMER(firstName, ADDRESS_FK) VALUES ('test', 1);
+INSERT INTO T_E_CUSTOMER(firstName, ADDRESS_FK) VALUES ('wowo', 2);
+INSERT INTO T_E_CUSTOMER(firstName, ADDRESS_FK) VALUES ('rrrr', 3);
+INSERT INTO T_E_CUSTOMER(firstName, ADDRESS_FK) VALUES ('hello', 4);
+
+INSERT INTO T_E_ADDRESS(ID, street) VALUES (1, 'saasd');
+INSERT INTO T_E_ADDRESS(ID, street) VALUES (2, 'saasdaSfsgd');
+INSERT INTO T_E_ADDRESS(ID, street) VALUES (3, 'saasdasegasg');
+INSERT INTO T_E_ADDRESS(ID, street) VALUES (4, 'saasdasrsrdhsdjsj');
+
+
 
