@@ -23,6 +23,10 @@
         <class>ru.ezhov.persistence.inheritance.single.table.CD</class>
         <class>ru.ezhov.persistence.inheritance.single.table.Book</class>
 
+        <class>ru.ezhov.persistence.inheritance.joined.Item</class>
+        <class>ru.ezhov.persistence.inheritance.joined.CD</class>
+        <class>ru.ezhov.persistence.inheritance.joined.Book</class>
+
         <properties>
             <property name="hibernate.dialect"
                       value="org.hibernate.dialect.H2Dialect"/>

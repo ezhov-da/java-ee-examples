@@ -5,9 +5,9 @@ import javax.persistence.*;
 /**
  * Created by rrnezh on 29.10.2017.
  */
-@Inheritance(strategy = InheritanceType.JOINED)
 @Entity
-@Table(name = "T_E_INHERITANCE_SINGLE_TABLE")
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "T_E_INHERITANCE_JOINED_ITEM")
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

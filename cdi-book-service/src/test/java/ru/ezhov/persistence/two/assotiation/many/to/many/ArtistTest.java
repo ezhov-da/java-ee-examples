@@ -13,7 +13,7 @@ import java.util.List;
  * Created by rrnezh on 29.10.2017.
  */
 public class ArtistTest {
-    private static final Logger LOG = LoggerFactory.getLogger(CustomerTest.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(ArtistTest.class.getName());
 
     @Test
     public void selectAll() throws Exception {
