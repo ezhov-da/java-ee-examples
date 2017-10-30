@@ -1,22 +1,19 @@
-package ru.ezhov.persistence;
+package ru.ezhov.persistence.two.assotiation.one.to.one;
 
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ezhov.persistence.note.Note;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 /**
- * Created by rrnezh on 28.10.2017.
+ * Created by rrnezh on 29.10.2017.
  */
-public class NoteTest {
-    private static final Logger LOG = LoggerFactory.getLogger(NoteTest.class.getName());
+public class CustomerTest {
+    private static final Logger LOG = LoggerFactory.getLogger(CustomerTest.class.getName());
 
     @Test
     public void selectAll() throws Exception {
@@ -26,15 +23,18 @@ public class NoteTest {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
-            List<Note> list = entityManager.createQuery(
-                    "select n FROM Note n",
-                    Note.class
+            List<Customer> list = entityManager.createQuery(
+                    "select n FROM Customer n",
+                    Customer.class
             ).getResultList();
 
-            LOG.info("list: {}", list);
-            assertTrue(!list.isEmpty());
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
+
+            for(Customer customer: list){
+                LOG.info("------------->");
+                LOG.info(customer.toString());
+                LOG.info(customer.getAddress().toString());
+                LOG.info("<-------------");
+            }
         } finally {
             entityManager.close();
             entityManagerFactory.close();

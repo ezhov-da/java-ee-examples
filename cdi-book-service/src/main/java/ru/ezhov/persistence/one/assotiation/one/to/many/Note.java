@@ -1,9 +1,14 @@
-package ru.ezhov.persistence;
+package ru.ezhov.persistence.one.assotiation.one.to.many;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import ru.ezhov.persistence.note.NoteDate;
+import ru.ezhov.persistence.note.NoteDetail;
+import ru.ezhov.persistence.note.Tag;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by rrnezh on 28.10.2017.
@@ -13,7 +18,11 @@ import javax.persistence.Table;
 public class Note {
     @Id
     private int id;
+
+    @NotNull
+    @Size(min = 1, max = 256)
     private String name;
+
     @Column(name = "ISHIDE")
     private boolean hide;
 

@@ -3,7 +3,7 @@ package ru.ezhov.persistence;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ezhov.persistence.note.Note;
+import ru.ezhov.persistence.note.LinkUserNote;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,8 +15,8 @@ import static org.junit.Assert.*;
 /**
  * Created by rrnezh on 28.10.2017.
  */
-public class NoteTest {
-    private static final Logger LOG = LoggerFactory.getLogger(NoteTest.class.getName());
+public class LinkUserNoteTest {
+    private static final Logger LOG = LoggerFactory.getLogger(LinkUserNoteTest.class.getName());
 
     @Test
     public void selectAll() throws Exception {
@@ -26,9 +26,9 @@ public class NoteTest {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
-            List<Note> list = entityManager.createQuery(
-                    "select n FROM Note n",
-                    Note.class
+            List<LinkUserNote> list = entityManager.createQuery(
+                    "select n FROM LinkUserNote n",
+                    LinkUserNote.class
             ).getResultList();
 
             LOG.info("list: {}", list);

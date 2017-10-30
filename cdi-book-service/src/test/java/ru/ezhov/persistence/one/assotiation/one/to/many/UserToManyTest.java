@@ -1,22 +1,23 @@
-package ru.ezhov.persistence;
+package ru.ezhov.persistence.one.assotiation.one.to.many;
 
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ezhov.persistence.note.Note;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 /**
- * Created by rrnezh on 28.10.2017.
+ * Created by rrnezh on 29.10.2017.
  */
-public class NoteTest {
-    private static final Logger LOG = LoggerFactory.getLogger(NoteTest.class.getName());
+public class UserToManyTest {
+
+    private static final Logger LOG = LoggerFactory.getLogger(UserToManyTest.class.getName());
 
     @Test
     public void selectAll() throws Exception {
@@ -26,18 +27,18 @@ public class NoteTest {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
-            List<Note> list = entityManager.createQuery(
-                    "select n FROM Note n",
-                    Note.class
+            List<UserToMany> list = entityManager.createQuery(
+                    "select n FROM UserToManyColumn n",
+                    UserToMany.class
             ).getResultList();
 
             LOG.info("list: {}", list);
-            assertTrue(!list.isEmpty());
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
+            assertNotEquals(0, list.size());
+
         } finally {
             entityManager.close();
             entityManagerFactory.close();
+
         }
     }
 }

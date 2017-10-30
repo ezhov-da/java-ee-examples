@@ -1,22 +1,18 @@
-package ru.ezhov.persistence;
+package ru.ezhov.persistence.inheritance.single.table;
 
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ezhov.persistence.note.Note;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
- * Created by rrnezh on 28.10.2017.
+ * Created by rrnezh on 29.10.2017.
  */
-public class NoteTest {
-    private static final Logger LOG = LoggerFactory.getLogger(NoteTest.class.getName());
+public class ItemTest {
+    private static final Logger LOG = LoggerFactory.getLogger(ItemTest.class.getName());
 
     @Test
     public void selectAll() throws Exception {
@@ -26,15 +22,18 @@ public class NoteTest {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
-            List<Note> list = entityManager.createQuery(
-                    "select n FROM Note n",
-                    Note.class
-            ).getResultList();
+            entityManager.getTransaction().begin();
 
-            LOG.info("list: {}", list);
-            assertTrue(!list.isEmpty());
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
+            Item item= new Item("yo");
+            entityManager.persist(item);
+
+            CD cd = new CD("12", "hello");
+            entityManager.persist(cd);
+
+            Book book = new Book("asdfsd","author" );
+            entityManager.persist(book);
+
+            entityManager.getTransaction().commit();
         } finally {
             entityManager.close();
             entityManagerFactory.close();

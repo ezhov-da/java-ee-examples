@@ -1,8 +1,10 @@
-package ru.ezhov.persistence;
+package ru.ezhov.persistence.note;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by rrnezh on 28.10.2017.
@@ -11,8 +13,13 @@ import javax.persistence.Table;
 @Table(name = "T_E_NOTE_DETAIL")
 public class NoteDetail {
     @Id
+
     private int id;
+
+    @NotNull
     private String text;
+
+    @Size(max = 1000)
     private String link;
 
     public int getId() {

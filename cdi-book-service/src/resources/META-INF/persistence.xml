@@ -6,9 +6,31 @@
     <persistence-unit name="ru.ezhov" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>ru.ezhov.cdi.Book</class>
-        <class>ru.ezhov.persistence.Note</class>
-        <class>ru.ezhov.persistence.NoteDetail</class>
-        <class>ru.ezhov.persistence.NoteDate</class>
+        <class>ru.ezhov.persistence.note.Note</class>
+        <class>ru.ezhov.persistence.note.NoteDetail</class>
+        <class>ru.ezhov.persistence.note.NoteDate</class>
+
+        <class>ru.ezhov.persistence.two.assotiation.one.to.one.Customer</class>
+        <class>ru.ezhov.persistence.two.assotiation.one.to.one.Address</class>
+
+        <class>ru.ezhov.persistence.one.assotiation.one.to.many.UserToMany</class>
+        <class>ru.ezhov.persistence.one.assotiation.one.to.many.Note</class>
+
+        <class>ru.ezhov.persistence.one.assotiation.one.to.many.from.column.key.UserToManyColumn</class>
+        <class>ru.ezhov.persistence.one.assotiation.one.to.many.from.column.key.Note</class>
+
+        <class>ru.ezhov.persistence.inheritance.single.table.Item</class>
+        <class>ru.ezhov.persistence.inheritance.single.table.CD</class>
+        <class>ru.ezhov.persistence.inheritance.single.table.Book</class>
+
+        <class>ru.ezhov.persistence.inheritance.joined.Item</class>
+        <class>ru.ezhov.persistence.inheritance.joined.CD</class>
+        <class>ru.ezhov.persistence.inheritance.joined.Book</class>
+
+        <class>ru.ezhov.persistence.inheritance.table.per.clazz.Item</class>
+        <class>ru.ezhov.persistence.inheritance.table.per.clazz.CD</class>
+        <class>ru.ezhov.persistence.inheritance.table.per.clazz.Book</class>
+
         <properties>
             <property name="hibernate.dialect"
                       value="org.hibernate.dialect.H2Dialect"/>
@@ -20,6 +42,8 @@
                       value="jdbc:h2:tcp://localhost/~/test"/>
             <property name="javax.persistence.jdbc.user" value="admin"/>
             <property name="javax.persistence.jdbc.password" value="admin"/>
+
+            <property name="javax.persistence.schema.generation-scripts.action" value="create"/>
         </properties>
     </persistence-unit>
 </persistence>
