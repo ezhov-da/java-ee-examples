@@ -31,6 +31,9 @@
         <class>ru.ezhov.persistence.inheritance.table.per.clazz.CD</class>
         <class>ru.ezhov.persistence.inheritance.table.per.clazz.Book</class>
 
+        <class>ru.ezhov.persistence.entity.manipulation.CustomerManipulation</class>
+        <class>ru.ezhov.persistence.entity.manipulation.AddressManipulation</class>
+
         <properties>
             <property name="hibernate.dialect"
                       value="org.hibernate.dialect.H2Dialect"/>
