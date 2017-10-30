@@ -27,6 +27,10 @@
         <class>ru.ezhov.persistence.inheritance.joined.CD</class>
         <class>ru.ezhov.persistence.inheritance.joined.Book</class>
 
+        <class>ru.ezhov.persistence.inheritance.table.per.clazz.Item</class>
+        <class>ru.ezhov.persistence.inheritance.table.per.clazz.CD</class>
+        <class>ru.ezhov.persistence.inheritance.table.per.clazz.Book</class>
+
         <properties>
             <property name="hibernate.dialect"
                       value="org.hibernate.dialect.H2Dialect"/>
