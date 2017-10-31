@@ -35,7 +35,7 @@ public class CustomerManipulationTest {
             entityManager.getTransaction().begin();
 
             entityManager.persist(customerManipulation);
-            entityManager.persist(addressManipulation);
+//            entityManager.persist(addressManipulation);
 
             entityManager.getTransaction().commit();
 

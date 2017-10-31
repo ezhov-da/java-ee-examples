@@ -21,7 +21,10 @@ public class CustomerManipulation {
     @Column(name = "EMAIL", nullable = false, length = 100)
     private String email;
 
-    @OneToOne(fetch = FetchType.LAZY,orphanRemoval = true)
+    @OneToOne(
+            fetch = FetchType.LAZY,
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name = "ADDRESS_FK", referencedColumnName = "ID")
     private AddressManipulation addressManipulation;
 
