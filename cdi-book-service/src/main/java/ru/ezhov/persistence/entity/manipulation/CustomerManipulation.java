@@ -9,7 +9,10 @@ import javax.persistence.*;
 @Table(name = "T_E_MANIPULATION_CUSTOMER")
 public class CustomerManipulation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer")
+    @SequenceGenerator(
+            name = "customer", sequenceName = "S_CUSTOMER",allocationSize = 1
+    )
     private int id;
 
     @Column(name = "LAST_NAME", nullable = false, length = 100)
@@ -21,7 +24,7 @@ public class CustomerManipulation {
     @Column(name = "EMAIL", nullable = false, length = 100)
     private String email;
 
-    @OneToOne(fetch = FetchType.LAZY,orphanRemoval = true)
+    @OneToOne(fetch = FetchType.LAZY,orphanRemoval = true, cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "ADDRESS_FK", referencedColumnName = "ID")
     private AddressManipulation addressManipulation;
 
