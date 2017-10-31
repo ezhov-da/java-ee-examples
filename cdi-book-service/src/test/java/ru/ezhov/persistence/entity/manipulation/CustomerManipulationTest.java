@@ -1,5 +1,6 @@
 package ru.ezhov.persistence.entity.manipulation;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import static org.junit.Assert.*;
 /**
  * Created by rrnezh on 30.10.2017.
  */
+@Ignore
 public class CustomerManipulationTest {
     private static final Logger LOG = LoggerFactory.getLogger(CustomerManipulationTest.class.getName());
 
@@ -26,7 +28,7 @@ public class CustomerManipulationTest {
         CustomerManipulation customerManipulation =
                 new CustomerManipulation("Ezhov", "Denis", "test@mail.ru");
 
-        AddressManipulation addressManipulation =
+       AddressManipulation addressManipulation =
                 new AddressManipulation("1", "1", "1", "1");
 
         customerManipulation.setAddressManipulation(addressManipulation);
@@ -35,7 +37,6 @@ public class CustomerManipulationTest {
             entityManager.getTransaction().begin();
 
             entityManager.persist(customerManipulation);
-            entityManager.persist(addressManipulation);
 
             entityManager.getTransaction().commit();
 
