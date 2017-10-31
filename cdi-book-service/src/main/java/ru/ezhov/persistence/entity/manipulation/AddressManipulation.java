@@ -9,7 +9,10 @@ import javax.persistence.*;
 @Table(name = "T_E_MANIPULATION_ADDRESS")
 public class AddressManipulation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address")
+    @SequenceGenerator(
+            name = "address", sequenceName = "S_ADDRESS",allocationSize = 1
+    )
     private int id;
 
     @Column(name = "STREET", nullable = false, length = 100)
