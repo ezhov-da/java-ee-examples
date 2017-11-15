@@ -1,5 +1,6 @@
 package ru.ezhov.ejb;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import ru.ezhov.cdi.Book;
 
@@ -11,6 +12,7 @@ import java.util.Map;
 
 import static org.junit.Assert.*;
 
+@Ignore
 public class BookEJBTest {
     @Test
     public void findBook() throws Exception {

@@ -1,5 +1,6 @@
 package ru.ezhov.persistence.one.assotiation.one.to.many;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ import static org.junit.Assert.*;
 /**
  * Created by rrnezh on 29.10.2017.
  */
+@Ignore
 public class UserToManyTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserToManyTest.class.getName());
