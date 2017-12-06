@@ -1,5 +1,6 @@
 package ru.ezhov.persistence.inheritance.table.per.clazz;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import static org.junit.Assert.*;
 /**
  * Created by rrnezh on 30.10.2017.
  */
+@Ignore
 public class ItemTest {
     private static final Logger LOG = LoggerFactory.getLogger(ru.ezhov.persistence.inheritance.table.per.clazz.ItemTest.class.getName());
 

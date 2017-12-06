@@ -1,5 +1,6 @@
 package ru.ezhov.persistence;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,7 @@ import static org.junit.Assert.*;
 /**
  * Created by rrnezh on 28.10.2017.
  */
+@Ignore
 public class NoteBigTest {
     private static final Logger LOG = LoggerFactory.getLogger(NoteBigTest.class.getName());
 

@@ -18,7 +18,7 @@ import java.lang.annotation.*;
         validatedBy = {}
 )
 public @interface Email {
-    String message() default "{ru.ezhov.validators.error.email.validator}";
+    String message() default "{ru.ezhov.validators.error.email.validator.message}";
 
     Class<?>[] groups() default {};
 

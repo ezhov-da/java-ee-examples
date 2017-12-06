@@ -1,5 +1,6 @@
 package ru.ezhov.persistence.two.assotiation.many.to.many;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,7 @@ import java.util.List;
 /**
  * Created by rrnezh on 29.10.2017.
  */
+@Ignore
 public class ArtistTest {
     private static final Logger LOG = LoggerFactory.getLogger(ArtistTest.class.getName());
 

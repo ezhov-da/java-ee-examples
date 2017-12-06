@@ -15,6 +15,7 @@ import static org.junit.Assert.*;
 /**
  * Created by rrnezh on 28.10.2017.
  */
+@Ignore
 public class CustomerITest {
     private static ValidatorFactory validatorFactory;
     private static Validator validator;
